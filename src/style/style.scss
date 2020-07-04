@@ -89,8 +89,13 @@ body{
     input:focus,
     button:focus{
         outline: none;
+        outline: 0;
     }
 
+
+    #amount-one, #amount-two{
+        outline: 3px $bg-color solid;
+    }
 
 
     @media(max-width:600px){

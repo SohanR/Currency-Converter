@@ -101,6 +101,11 @@ body select:focus,
 body input:focus,
 body button:focus {
   outline: none;
+  outline: 0;
+}
+
+body #amount-one, body #amount-two {
+  outline: 3px #f4f4f4 solid;
 }
 
 @media (max-width: 600px) {
