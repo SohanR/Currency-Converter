@@ -15,6 +15,13 @@ amountOne.addEventListener('input', calculate)
 currencyTwo.addEventListener('change', calculate)
 amountTwo.addEventListener('input', calculate)
 
+swap.addEventListener('click', () => {
+    const temp = currencyOne.value;
+    currencyOne.value = currencyTwo.value;
+    currencyTwo.value = temp;
+    calculate();
+})
+
 
 // convert function
 function calculate() {
@@ -26,16 +33,11 @@ function calculate() {
         .then(res => res.json())
         .then(data => {
 
+            const ratevalue = data[`${currency_one}_${currency_two}`];
 
-            const rat = console.log(currency_one + '_' + currency_two);
-            console.log(data.rat);
+            rate.innerHTML = `1 ${currency_one} = ${ratevalue} ${currency_two}`;
 
-
-
-
-
-
-            // rate.innerHTML = `1 ${currency_one} = ${ratevalue} ${currency_two}`;
+            amountTwo.value = (amountOne.value * ratevalue).toFixed(2);
         })
 
 }
